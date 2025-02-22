@@ -1,0 +1,52 @@
+build librealsense aar library in android wrapper, help:
+- C:// git clone librealsense
+- gradle wrapper -Dorg.gradle.java.home="C:\Program Files\Java\jdk-17"
+- gradlew assembleRelease -Dorg.gradle.java.home="C:\Program Files\Java\jdk-17"
+
+IN CMD!!!!
+C:\librealsense\wrappers\android>gradle wrapper -Dorg.gradle.java.home="C:\Program Files\Java\jdk-17"
+C:\librealsense\wrappers\android>gradlew assembleRelease -Dorg.gradle.java.home="C:\Program Files\Java\jdk-17"
+
+
+package com.intel.realsense.librealsense;
+
+public class Point_3D {
+
+    public float[] getCoordinates() {
+        return new float[]{mX, mY, mZ};
+    }
+}
+
+
+package com.intel.realsense.librealsense;
+
+public class Frame extends LrsClass implements Cloneable{
+
+    public byte[] getMyData() {
+        byte[] data = new byte[getDataSize()];
+        getData(data);
+        return data;
+    }
+}
+
+
+package com.intel.realsense.librealsense;
+
+public class Utils {
+
+    public static Point_3D deprojectMyPixelToPoint(final Intrinsic intrinsic, final int x, final int y, final float depth) {
+        Point_3D rv = new Point_3D();
+        Pixel pixel = new Pixel(x, y);
+        nDeprojectPixelToPoint(rv, intrinsic, pixel, depth);
+        return rv;
+    }
+}
+
+package com.intel.realsense.librealsense;
+
+public class Intrinsic {
+    public float getPpx() {return mPpx;}
+    public float getPpy() {return mPpy;}
+    public float getFx() {return mFx;}
+    public float getFy() {return mFy;}
+}
