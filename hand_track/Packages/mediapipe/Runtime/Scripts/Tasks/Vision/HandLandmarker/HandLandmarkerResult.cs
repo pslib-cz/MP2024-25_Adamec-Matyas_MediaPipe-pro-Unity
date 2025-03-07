@@ -7,12 +7,15 @@ namespace Mediapipe.Tasks.Vision.HandLandmarker
     public readonly struct HandLandmarkerResult
     {
         public readonly List<Classifications> handedness;
+
         public readonly List<NormalizedLandmarks> handLandmarks;
+
         internal HandLandmarkerResult(List<Classifications> handedness, List<NormalizedLandmarks> handLandmarks)
         {
             this.handedness = handedness;
             this.handLandmarks = handLandmarks;
         }
+
         public static HandLandmarkerResult Alloc(int capacity)
         {
             var handedness = new List<Classifications>(capacity);
@@ -20,6 +23,7 @@ namespace Mediapipe.Tasks.Vision.HandLandmarker
             var handWorldLandmarks = new List<Landmarks>(capacity);
             return new HandLandmarkerResult(handedness, handLandmarks);
         }
+
         public void CloneTo(ref HandLandmarkerResult destination)
         {
             if (handLandmarks == null)

@@ -8,6 +8,7 @@ namespace Mediapipe
 {
   public static class PacketGetterExtension
   {
+
     public static Image Get(this Packet<Image> packet)
     {
       UnsafeNativeMethods.mp_Packet__GetImage(packet.mpPtr, out var ptr).Assert();

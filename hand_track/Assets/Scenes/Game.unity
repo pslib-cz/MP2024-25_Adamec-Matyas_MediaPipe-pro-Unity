@@ -176,8 +176,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.12
-  far clip plane: 73.9
+  near clip plane: 0.5
+  far clip plane: 55
   field of view: 36.8
   orthographic: 0
   orthographic size: 5
@@ -604,6 +604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9610250fe0494e04595a91ed0dc95ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockPrefab: {fileID: 0}
+  pickablePrefab: {fileID: 0}
 --- !u!1 &75009571
 GameObject:
   m_ObjectHideFlags: 0
@@ -4088,7 +4090,7 @@ Transform:
   m_GameObject: {fileID: 653467221}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7773,7 +7775,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockPrefab: {fileID: 644532374171558701, guid: 980cf94a082770c40961787fccb89979, type: 3}
-  blocBluekPrefab: {fileID: 0}
   spawnDistance: 50
   xRange: 1.8
   yRange: 1
@@ -8207,7 +8208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf139821c5c17544a5b7f093e62121d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeedX: 0
   scrollSpeedY: -0.3
 --- !u!1 &1567163234
 GameObject:

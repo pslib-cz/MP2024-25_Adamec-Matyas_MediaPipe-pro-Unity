@@ -15,6 +15,7 @@ public static class SaveManager
     }
     public static Save<T> Load<T>() where T : SaveData, new()
     {
+        Debug.Log($"Loading save file: {saveFolder}/{profileName}");
         if (!File.Exists($"{saveFolder}/{profileName}"))
         {
             Debug.Log($"Save file not found: {saveFolder}/{profileName}");
@@ -56,6 +57,7 @@ public static class SaveManager
         }
         else
         {
+            // only update the level data
             var save = Load<LevelSaveDataContainer>();
             var levelData = save.saveData.levels.Find(x => x.levelId == id);
             if (levelData == null)

@@ -5,11 +5,13 @@ using Mediapipe.Tasks.Components.Containers;
 using System.Threading;
 using RealSenseManager;
 using System;
+using Packages.mediapipe.Runtime.Scripts.Unity;
 
 public class HandManager : MonoBehaviour
 {
     public static HandManager Instance;
     private IRealSenseManager realSenseManager;
+
 
     [SerializeField] private GameObject SwordL;
     [SerializeField] private GameObject SwordR;
@@ -31,7 +33,6 @@ public class HandManager : MonoBehaviour
     {
         Instance = this;
         realSenseManager = RealSenseManagerFactory.GetManager();
-
     }
 
     private void Start()
@@ -89,7 +90,7 @@ public class HandManager : MonoBehaviour
     {
         var depthTexture = realSenseManager.GetDepthTexture();
         var colorIntrin = realSenseManager.GetIntrin();
-        Debug.Log(colorIntrin.ppy + " " + colorIntrin.ppx + " " + colorIntrin.fx + " " + colorIntrin.fy + " " + colorIntrin.width + " " + colorIntrin.height);
+        //Debug.Log(colorIntrin.ppy + " " + colorIntrin.ppx + " " + colorIntrin.fx + " " + colorIntrin.fy + " " + colorIntrin.width + " " + colorIntrin.height);
         if (depthTexture == null)
         {
             Debug.LogError("Depth Texture is null");
@@ -184,25 +185,23 @@ public class HandManager : MonoBehaviour
 
         if (_landmarksL == null)
         {
-
             HideLandmarks(landmarksL);
         }
         else
         {
-
             AdjustLandmarkPosition(_landmarksL, landmarksL, false);
         }
 
         if (_landmarksR == null)
         {
-
             HideLandmarks(landmarksR);
         }
         else
         {
             AdjustLandmarkPosition(_landmarksR, landmarksR, true);
         }
-
         updateLandmarks = false;
     }
+
+
 }

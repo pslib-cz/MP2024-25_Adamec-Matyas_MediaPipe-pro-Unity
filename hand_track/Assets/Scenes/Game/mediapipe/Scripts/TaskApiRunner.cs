@@ -8,26 +8,32 @@ namespace Mediapipe.Unity.Sample
 {
   public abstract class BaseRunner : MonoBehaviour
   {
+    //private RealSenseManager _realSenseManager = new RealSenseManager();
+
+
     protected bool isPaused;
 
     private readonly Stopwatch _stopwatch = new();
 
     private void OnEnable()
     {
-      var _ = StartCoroutine(Init());
+        var _ = StartCoroutine(Init());
     }
 
     private IEnumerator Init()
     {
-      AssetLoader.Provide(new StreamingAssetsResourceManager());
+        AssetLoader.Provide(new StreamingAssetsResourceManager());
 
-      yield return null;
+        yield return null;
     }
+
     public virtual void Play()
     {
+      //_realSenseManager.Initialize();
       isPaused = false;
       _stopwatch.Restart();
     }
+
     public virtual void Pause()
     {
       isPaused = true;
@@ -45,5 +51,7 @@ namespace Mediapipe.Unity.Sample
     }
 
     protected long GetCurrentTimestampMillisec() => _stopwatch.IsRunning ? _stopwatch.ElapsedTicks / TimeSpan.TicksPerMillisecond : -1;
+
+
   }
 }

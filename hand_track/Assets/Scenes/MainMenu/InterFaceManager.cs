@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InterFaceManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class InterFaceManager : MonoBehaviour
     [SerializeField] public GameObject MenuScreen;
     [SerializeField] public GameObject LevelsScreen;
 
+    [SerializeField] public Button GoToSandBoxBtn;
 
     public void Start()
     {
@@ -31,9 +33,14 @@ public class InterFaceManager : MonoBehaviour
         quitBtn.onClick.AddListener(QuitGame);
         startBtn.onClick.AddListener(StartGame);
         GoToMenuBtn.onClick.AddListener(GoToMenu);
+        GoToSandBoxBtn.onClick.AddListener(GoToSandBox);
     }
 
 
+    public void GoToSandBox()
+    {
+        SceneManager.LoadScene("SandBox");
+    }
 
     public void StartGame()
     {

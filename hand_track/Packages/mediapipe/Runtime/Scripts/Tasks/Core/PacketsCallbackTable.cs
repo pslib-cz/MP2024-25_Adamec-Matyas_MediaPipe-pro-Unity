@@ -30,6 +30,7 @@ namespace Mediapipe.Tasks.Core
       UnityEngine.Profiling.Profiler.BeginThreadProfiling("Mediapipe", "PacketsCallbackTable.InvokeCallbackIfFound");
       UnityEngine.Profiling.Profiler.BeginSample("PacketsCallbackTable.InvokeCallbackIfFound");
 
+      // NOTE: if status is not OK, packetMap will be nullptr
       if (packetMapPtr == IntPtr.Zero)
       {
         Debug.LogError(statusPtr);

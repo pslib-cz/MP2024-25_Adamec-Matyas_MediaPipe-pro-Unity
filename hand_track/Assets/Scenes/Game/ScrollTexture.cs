@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class ScrollTexture : MonoBehaviour
 {
-    public float scrollSpeedX = 0.5f;
-    public float scrollSpeedY = 0.0f;
+    public float scrollSpeedY = -0.3f;
 
     private Renderer rend;
     private Vector2 offset;
@@ -22,7 +21,6 @@ public class ScrollTexture : MonoBehaviour
             return;
         }
 
-        offset.x += scrollSpeedX * Time.deltaTime;
         offset.y += scrollSpeedY * Time.deltaTime;
         rend.material.mainTextureOffset = offset;
     }

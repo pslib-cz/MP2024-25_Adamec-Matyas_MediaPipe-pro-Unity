@@ -19,7 +19,8 @@ public sealed class Save<T> where T : SaveData
 }
 
 [System.Serializable]
-public abstract class SaveData { }
+public abstract class SaveData { } // Change from record to class
+
 [System.Serializable]
 public class LevelSaveData : SaveData
 {

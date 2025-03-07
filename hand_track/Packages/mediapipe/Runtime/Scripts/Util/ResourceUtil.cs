@@ -29,10 +29,12 @@ namespace Mediapipe
 
     public static bool TryGetFilePath(string assetPath, out string filePath)
     {
+      // try to find the file path by the requested asset path
       if (_AssetPathMap.TryGetValue(assetPath, out filePath))
       {
         return true;
       }
+      // try to find the file path by the asset name
       if (_AssetPathMap.TryGetValue(GetAssetNameFromPath(assetPath), out filePath))
       {
         return true;

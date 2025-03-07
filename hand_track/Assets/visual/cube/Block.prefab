@@ -71,7 +71,7 @@ MonoBehaviour:
   destroyEffectR: {fileID: 5325652653778644706, guid: 3886eb46536b93d4fbfd18319c978fb2, type: 3}
   destroyEffectL: {fileID: 5325652653778644706, guid: c96f17084e74d764b8bfafa8f02140f6, type: 3}
   destroyEffectLong: {fileID: 5325652653778644706, guid: 1040dabbd78417146a08007989a8d2af, type: 3}
-  destroySound: {fileID: 8300000, guid: 3df86dde262e155489fdad1dae1d1f4f, type: 3}
+  destroySound: {fileID: 8300000, guid: 220bdd107f4be0c4f9f30726f143a1b3, type: 3}
   destroySoundLong: {fileID: 8300000, guid: dedf1a81e4d448249bf49d2e749ec6bf, type: 3}
   blue: {fileID: 2100000, guid: a366f77db3941b945bf15d7f53d26b20, type: 2}
   isRight: 0

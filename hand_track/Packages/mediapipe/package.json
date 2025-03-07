@@ -11,28 +11,8 @@
     "mediapipe",
     "MediaPipe"
   ],
-  "scripts": {
-    "setupSampleDir": "rm -rf $(npm prefix)/Samples~ && mkdir -p $(npm prefix)/Samples~",
-    "copySolutionSamples": "cp -r $(npm prefix)/../../Assets/MediaPipeUnity/Samples $(npm prefix)/Samples~/Solutions",
-    "copyTutorial": "cp -r $(npm prefix)/../../Assets/MediaPipeUnity/Tutorial $(npm prefix)/Samples~/Tutorial",
-    "prepack": "npm run setupSampleDir && npm run copySolutionSamples && npm run copyTutorial",
-    "postpack": "rm -rf $(npm prefix)/Samples~"
-  },
   "dependencies": {
     "com.unity.ugui": "1.0.0",
     "com.unity.test-framework": "1.0.0"
-  },
-  "license": "MIT",
-  "samples": [
-    {
-      "displayName": "Official Solutions",
-      "description": "MediaPipe Official Solutions Sample",
-      "path": "Samples~/Solutions"
-    },
-    {
-      "displayName": "Tutorial",
-      "description": "Sample Scenes for Tutorial",
-      "path": "Samples~/Tutorial"
-    }
-  ]
+  }
 }

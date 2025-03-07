@@ -84,8 +84,6 @@ namespace Mediapipe
       }
     }
 
-
-
     public bool Remove(TKey key)
     {
       _tableLock.EnterWriteLock();

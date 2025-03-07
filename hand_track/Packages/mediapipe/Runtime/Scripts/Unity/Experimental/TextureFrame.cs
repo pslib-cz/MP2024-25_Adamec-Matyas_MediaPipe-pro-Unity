@@ -35,7 +35,7 @@ namespace Mediapipe.Unity.Experimental
     public readonly TextureFormat format;
 
 
-#pragma warning disable IDE1006
+#pragma warning disable IDE1006  // UnityEvent is PascalCase
     public readonly ReleaseEvent OnRelease;
 #pragma warning restore IDE1006
 
@@ -95,7 +95,7 @@ namespace Mediapipe.Unity.Experimental
         scale.y = -1.0f;
         offset.y = 1.0f;
       }
-
+      
       Graphics.Blit(src, _tmpRenderTexture, scale, offset);
       RenderTexture.active = currentRenderTexture;
     }

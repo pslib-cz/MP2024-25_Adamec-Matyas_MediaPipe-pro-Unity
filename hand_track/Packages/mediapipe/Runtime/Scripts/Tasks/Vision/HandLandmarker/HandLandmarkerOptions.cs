@@ -1,14 +1,20 @@
 namespace Mediapipe.Tasks.Vision.HandLandmarker
 {
-
   public sealed class HandLandmarkerOptions : Tasks.Core.ITaskOptions
   {
+
     public delegate void ResultCallback(HandLandmarkerResult handLandmarksResult, Image image, long timestampMillisec);
+
     public Tasks.Core.BaseOptions baseOptions { get; }
+
     public int numHands { get; }
+
     public float minHandDetectionConfidence { get; }
+
     public float minHandPresenceConfidence { get; }
+
     public float minTrackingConfidence { get; }
+
     public ResultCallback resultCallback { get; }
 
     public HandLandmarkerOptions(

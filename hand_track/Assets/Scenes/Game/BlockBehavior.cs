@@ -10,8 +10,8 @@ public class BlockBehavior : MonoBehaviour
     public ParticleSystem destroyEffectR;
     public ParticleSystem destroyEffectL;
     public ParticleSystem destroyEffectLong;
-    public AudioClip destroySound;
-    public AudioClip destroySoundLong;
+    public AudioClip destroySound;     
+    public AudioClip destroySoundLong;     
     public Material blue;
     private AudioSource audioSource;
     public bool isRight = false;
@@ -46,7 +46,7 @@ public class BlockBehavior : MonoBehaviour
         if (isRight)
         {
             MeshRenderer meshRenderer = GetComponentInChildren<MeshRenderer>();
-            meshRenderer.material = blue;
+            meshRenderer.material = blue; 
         }
     }
 
@@ -104,16 +104,13 @@ public class BlockBehavior : MonoBehaviour
 
 
 
-
-    public float checkRadius = 10f;
+    public float checkRadius = 10f; 
     public LayerMask detectionLayer;
 
     private void Update()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, checkRadius, detectionLayer);
-
         Debug.DrawLine(transform.position, transform.position + Vector3.up * checkRadius, Color.red);
-
 
         isHolding = colliders.Length > 1;
 
@@ -162,9 +159,7 @@ public class BlockBehavior : MonoBehaviour
         elapsedTime = 0f;
         currentStopIndex = 0;
     }
-
-
-
+    
     private void FollowPath()
     {
         if (currentStopIndex >= longData.stops.Length - 1) return;

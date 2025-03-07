@@ -62,13 +62,15 @@ namespace RealSenseManager
             Debug.Log("Initializing RealSense Manager");
             if (_pipeline != null)
             {
-                Dispose();
+                Dispose(); 
             }
 
             _pipeline = new Pipeline();
             var cfg = new Config();
             cfg.DisableAllStreams();
             cfg.EnableDeviceFromFile("C:\\Users\\adame\\Documents\\20250207_092114.bag");
+            //cfg.EnableStream(Stream.Depth, 1280, 720, Format.Z16, 30);
+            //cfg.EnableStream(Stream.Color, 1280, 720, Format.Rgb8, 30);
             try
             {
                 _pipeline.Start(cfg);
@@ -103,6 +105,7 @@ namespace RealSenseManager
         {
             return _depthTexture;
         }
+        // 2764800
         private byte[] data = new byte[2764800];
         private byte[] flippedData = new byte[2764800];
 
@@ -114,6 +117,8 @@ namespace RealSenseManager
                 return null;
             }
             using (var frames = _pipeline.WaitForFrames())
+            //using (var alignedFrames = _align.Process(frames))
+            //using (var frameset = alignedFrames.AsFrameSet())
             using (var colorFrame = frames.ColorFrame)
             using (var depthFrame = frames.DepthFrame)
             {

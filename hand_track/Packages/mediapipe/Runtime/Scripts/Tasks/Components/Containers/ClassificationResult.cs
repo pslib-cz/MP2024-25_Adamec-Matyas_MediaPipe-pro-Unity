@@ -4,9 +4,11 @@ namespace Mediapipe.Tasks.Components.Containers
 {
   public readonly struct Classifications
   {
+
     public readonly List<Category> categories;
 
     public readonly int headIndex;
+
     public readonly string headName;
 
     internal Classifications(List<Category> categories, int headIndex, string headName)
@@ -29,9 +31,9 @@ namespace Mediapipe.Tasks.Components.Containers
 
   }
 
-
   public readonly struct ClassificationResult
   {
+
     public readonly List<Classifications> classifications;
 
     public readonly long? timestampMs;

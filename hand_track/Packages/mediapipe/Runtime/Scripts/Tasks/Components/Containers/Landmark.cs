@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+// TODO: use System.MathF
 using Mathf = UnityEngine.Mathf;
 
 namespace Mediapipe.Tasks.Components.Containers
@@ -33,10 +34,10 @@ namespace Mediapipe.Tasks.Components.Containers
 
     internal Landmark(NativeLandmark nativeLandmark) : this(
       nativeLandmark.x, nativeLandmark.y, nativeLandmark.z,
-#pragma warning disable IDE0004 // for Unity 2020.3.x
+#pragma warning disable IDE0004 
       nativeLandmark.hasVisibility ? (float?)nativeLandmark.visibility : null,
       nativeLandmark.hasPresence ? (float?)nativeLandmark.presence : null,
-#pragma warning restore IDE0004 // for Unity 2020.3.x
+#pragma warning restore IDE0004 
       nativeLandmark.name
     )
     {
@@ -82,10 +83,10 @@ namespace Mediapipe.Tasks.Components.Containers
 
     internal NormalizedLandmark(NativeNormalizedLandmark nativeLandmark) : this(
       nativeLandmark.x, nativeLandmark.y, nativeLandmark.z,
-#pragma warning disable IDE0004 // for Unity 2020.3.x
+#pragma warning disable IDE0004
       nativeLandmark.hasVisibility ? (float?)nativeLandmark.visibility : null,
       nativeLandmark.hasPresence ? (float?)nativeLandmark.presence : null,
-#pragma warning restore IDE0004 // for Unity 2020.3.x
+#pragma warning restore IDE0004
       nativeLandmark.name
     )
     {

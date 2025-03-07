@@ -8,11 +8,10 @@ public class BlockSpawner : MonoBehaviour
     public static BlockSpawner instance;
 
     public GameObject blockPrefab;
-    public GameObject blocBluekPrefab;
-    public float spawnDistance = 10f;
-    public float xRange = .5f;
-    public float yRange = .5f;
-    public float yOffset = 1f;
+    public float spawnDistance = 10f; 
+    public float xRange = .5f; 
+    public float yRange = .5f; 
+    public float yOffset = 1f; 
 
     private void Awake()
     {
@@ -24,7 +23,7 @@ public class BlockSpawner : MonoBehaviour
         float spawnX = x * xRange;
         float spawnY = (y + yOffset) * yRange;
         Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnDistance);
-
+        
         GameObject block = Instantiate(blockPrefab, spawnPosition, Quaternion.identity);
         block.GetComponent<BlockBehavior>().isRight = isRight;
         block.GetComponent<BlockBehavior>().score = score;
@@ -45,7 +44,7 @@ public class BlockSpawner : MonoBehaviour
         float spawnX = x * xRange;
         float spawnY = (y + yOffset) * yRange;
         Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnDistance);
-
+        
         GameObject block = Instantiate(blockPrefab, spawnPosition, Quaternion.identity);
         block.GetComponent<BlockBehavior>().isRight = isRight;
         block.GetComponent<BlockBehavior>().score = score;
@@ -62,4 +61,11 @@ public class BlockSpawner : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        //spawnBlock(-1, -1, true, 100);
+        //spawnBlock(-1, 1, false, 100);
+        //spawnBlock(1, -1, false, 100);
+        //spawnBlock(1, 1, true, 100);
+    }
 }

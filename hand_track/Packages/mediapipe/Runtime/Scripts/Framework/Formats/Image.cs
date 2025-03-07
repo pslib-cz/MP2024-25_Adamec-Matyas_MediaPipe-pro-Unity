@@ -23,6 +23,7 @@ namespace Mediapipe
               : this(format, width, height, widthStep, pixelData, _VoidDeleter)
         { }
 
+        // TODO: detect format from the texture
         public Image(ImageFormat.Types.Format format, Texture2D texture) :
             this(format, texture.width, texture.height, 4 * texture.width, texture.GetRawTextureData<byte>())
         { }

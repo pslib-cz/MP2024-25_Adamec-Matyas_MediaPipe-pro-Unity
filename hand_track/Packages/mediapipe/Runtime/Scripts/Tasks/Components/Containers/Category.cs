@@ -1,5 +1,6 @@
 namespace Mediapipe.Tasks.Components.Containers
 {
+
   public readonly struct Category
   {
 

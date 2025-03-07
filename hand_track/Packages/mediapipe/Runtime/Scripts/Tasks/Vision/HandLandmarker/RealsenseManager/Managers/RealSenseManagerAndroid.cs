@@ -17,6 +17,7 @@ namespace RealSenseManager
             return colorIntrin;
         }
 
+
         private AndroidJavaObject _rsContext;
         private AndroidJavaObject _glRenderer;
         private AndroidJavaObject _pipeline;
@@ -32,6 +33,7 @@ namespace RealSenseManager
             {
                 if (_instance == null)
                 {
+                    //throw new InvalidOperationException("RealSenseManager instance has not been initialized.");
                     return null;
                 }
                 return _instance;
@@ -66,7 +68,7 @@ namespace RealSenseManager
             Debug.Log("Initializing RealSense Manager");
             if (_pipeline != null)
             {
-                Dispose();
+                Dispose(); 
             }
 
             try
@@ -149,6 +151,7 @@ namespace RealSenseManager
             return _depthTexture;
         }
 
+        // 2764800
         private byte[] data = new byte[2764800];
         private byte[] flippedData = new byte[2764800];
         private int stride = 3840;
@@ -179,8 +182,6 @@ namespace RealSenseManager
                 {
 
                     byte[] mydata = depthFrame.Call<byte[]>("getMyData");
-                    Debug.Log($"Stride: {stride * _colorHeight}");
-
                     _depthTexture.LoadRawTextureData(mydata);
                     _depthTexture.Apply();
                     depthFrame.Call("close");
@@ -188,6 +189,7 @@ namespace RealSenseManager
 
                 if (colorFrame != null)
                 {
+
                     data = colorFrame.Call<byte[]>("getMyData");
 
                     for (int y = 0; y < _colorHeight; y++)
@@ -206,6 +208,8 @@ namespace RealSenseManager
             }
             return null;
         }
+
+        Texture2D texture = null;
 
         public void Dispose()
         {

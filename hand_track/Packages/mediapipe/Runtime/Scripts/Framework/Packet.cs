@@ -6,6 +6,7 @@ namespace Mediapipe
 {
   public static class Packet
   {
+
     public static Packet<Image> CreateImageAt(Image value, long timestampMicrosec)
     {
       UnsafeNativeMethods.mp__MakeImagePacket_At__PI_ll(value.mpPtr, timestampMicrosec, out var ptr).Assert();
@@ -27,11 +28,11 @@ namespace Mediapipe
         var ok = SafeNativeMethods.absl_Status__ok(statusPtr);
         if (!ok)
         {
-          UnityEngine.Debug.Log("Status is not ok");
+            UnityEngine.Debug.Log("Status is not ok");
         }
         else
         {
-          UnsafeNativeMethods.absl_Status__delete(statusPtr);
+            UnsafeNativeMethods.absl_Status__delete(statusPtr);
         }
 
         return new Packet<TMessage>(ptr, true);

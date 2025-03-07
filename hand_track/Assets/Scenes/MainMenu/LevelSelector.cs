@@ -11,13 +11,13 @@ public class LevelSelector : MonoBehaviour
     public static LevelSelector instance;
 
     public LevelData[] levels;
-    public Transform buttonContainer;
-    public GameObject buttonPrefab;
+    public Transform buttonContainer; 
+    public GameObject buttonPrefab; 
     public Button submitButton;
 
-    public AudioSource audioSource;
+    public AudioSource audioSource; 
 
-    private Button currentlySelectedButton = null;
+    private Button currentlySelectedButton = null; 
     private int selectedLevel = -1;
 
     public GameObject LevelListParent;
@@ -116,10 +116,10 @@ public class LevelSelector : MonoBehaviour
         currentlySelectedButton = button;
         button.GetComponent<Image>().color = selectedItemColor;
 
-        audioSource.clip = level.levelMusic;
+        audioSource.clip = level.levelMusic; 
         audioSource.time = audioSource.clip.length / 2;
-        audioSource.Play();
-        audioSource.loop = true;
+        audioSource.Play(); 
+        audioSource.loop = true; 
 
         selectedLevel = level.levelId;
         Debug.Log($"Selected Level: {selectedLevel}");
@@ -155,7 +155,7 @@ public class LevelSelector : MonoBehaviour
     private void ShowDetails(LevelData level)
     {
         if (LevelDetail.activeInHierarchy == false)
-        {
+        { 
             makeListSmall();
             LevelDetail.SetActive(true);
         }
@@ -165,16 +165,17 @@ public class LevelSelector : MonoBehaviour
         {
             selectedImage.sprite = level.levelIcon;
 
-
+            
             LevelJson levelJsonData = JsonUtility.FromJson<LevelJson>(configText);
             LevelDetail_heading.text = levelJsonData.name;
             LevelDetail_blocks.text = $"{levelJsonData.blocks.Length} Blocks";
+
             float totalSeconds = levelJsonData.Time;
             float minutes = (int)totalSeconds / 60;
             float seconds = totalSeconds % 60;
             LevelDetail_time.text = $"Time: {minutes}:{seconds}"; LevelDetail_Description.text = levelJsonData.description;
 
-            LevelDetail_maxScore.text = $"0 / {levelJsonData.blocks.Length * 100}";
+            LevelDetail_maxScore.text = $"0 / {levelJsonData.blocks.Length*100}";
             percentText.text = $"0%";
             percentImage.color = new Color(1, 0, 0, 1);
             for (int i = 0; i < levelSaveDatas.Length; i++)
@@ -182,7 +183,7 @@ public class LevelSelector : MonoBehaviour
                 if (levelSaveDatas[i].levelId == levelJsonData.id)
                 {
                     var maxScore = levelSaveDatas[i].maxScore;
-                    LevelDetail_maxScore.text = $"{maxScore} / {levelJsonData.blocks.Length * 100}";
+                    LevelDetail_maxScore.text = $"{maxScore} / {levelJsonData.blocks.Length*100}";
 
                     float percent = (float)maxScore / (levelJsonData.blocks.Length * 100) * 100;
                     percentText.text = $"{Mathf.RoundToInt(percent)}%";
@@ -190,7 +191,7 @@ public class LevelSelector : MonoBehaviour
                     if (maxScore < (levelJsonData.blocks.Length * 100) * 0.25)
                     {
                         percentImage.color = new Color(1, 0, 0, 1);
-                    }
+                    }                    
                     else if (maxScore > (levelJsonData.blocks.Length * 100) * 0.25)
                     {
                         percentImage.color = new Color(0, 1, 0, 1);
@@ -224,7 +225,7 @@ public class LevelSelector : MonoBehaviour
 
         if (currentlySelectedButton != null)
         {
-            currentlySelectedButton.GetComponent<Image>().color = standardItemColor;
+            currentlySelectedButton.GetComponent<Image>().color = standardItemColor; // Reset color
         }
 
         currentlySelectedButton = null;
@@ -235,7 +236,7 @@ public class LevelSelector : MonoBehaviour
     {
         if (currentlySelectedButton != null)
         {
-            currentlySelectedButton.GetComponent<Image>().color = standardItemColor;
+            currentlySelectedButton.GetComponent<Image>().color = standardItemColor; // Reset color
         }
 
         currentlySelectedButton = null;

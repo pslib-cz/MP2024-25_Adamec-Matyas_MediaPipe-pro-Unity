@@ -173,7 +173,7 @@ public class LevelLoader : MonoBehaviour
         {
             Block currentBlock = blocks[currentBlockIndex];
 
-            if (timer >= currentBlock.time - 4.8f) // block speed 10f, block spawn distance 50f-2f
+            if (timer >= currentBlock.time - 4.75f) // block speed 10f, block spawn distance 50f-2f
             {
                 if (currentBlock.type == "long")
                 {
@@ -200,7 +200,7 @@ public class LevelLoader : MonoBehaviour
     
     public void playSound(AudioClip clip)
     {
-        audioSource.PlayOneShot(clip);
+        audioSource.PlayOneShot(clip, 0.2f);
     }
 
 }

@@ -8,10 +8,10 @@ using UnityEngine.UI;
 
 namespace RealSenseManager
 {
-    public static class RealSenseManagerFactory
+    public static class RealSenseManagerFactory 
     {
 
-        public static Platform selectedPlatform = Platform.Android;
+        public static Platform selectedPlatform = Platform.Computer;
         public static IRealSenseManager GetManager(Platform platform)
         {
             switch (platform)
@@ -43,7 +43,7 @@ namespace RealSenseManager
                         return RealSenseManagerBag.Instance;
                     return null;
                 default:
-                    return null;
+                    return null; 
             }
         }
 

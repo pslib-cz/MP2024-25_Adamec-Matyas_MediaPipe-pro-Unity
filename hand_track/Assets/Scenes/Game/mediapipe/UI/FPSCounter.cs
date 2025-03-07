@@ -29,14 +29,14 @@ public class FPSCounter : MonoBehaviour
 
     public void frameRun()
     {
-        _frameCount++;
+        _frameCount++; // Increment frame count when called from another class
     }
 
     void Update()
     {
         _dt += Time.deltaTime;
 
-        if (_dt >= 1.0f)
+        if (_dt >= 1.0f) // Every second, update FPS
         {
             _fps = _frameCount;
             _frameCount = 0;

@@ -14,9 +14,9 @@ namespace Mediapipe.Unity.Experimental
     public readonly TextureFormat textureFormat;
     public int poolSize { get; private set; }
 
-
     private readonly ReaderWriterLockSlim _textureFramesLock = new ReaderWriterLockSlim();
     private readonly Queue<TextureFrame> _availableTextureFrames;
+
     private readonly Dictionary<Guid, TextureFrame> _textureFramesInUse;
 
     public int frameCount => _availableTextureFrames.Count + _textureFramesInUse.Count;
@@ -117,10 +117,12 @@ namespace Mediapipe.Unity.Experimental
       {
         if (!_textureFramesInUse.Remove(textureFrame.GetInstanceID()))
         {
+          // won't be run
           UnityEngine.Debug.Log($"{_TAG} - The released texture does not belong to the pool");
           return;
         }
 
+        // NOTE: poolSize won't be changed, so just enqueue the released texture here.
         _availableTextureFrames.Enqueue(textureFrame);
       }
       finally

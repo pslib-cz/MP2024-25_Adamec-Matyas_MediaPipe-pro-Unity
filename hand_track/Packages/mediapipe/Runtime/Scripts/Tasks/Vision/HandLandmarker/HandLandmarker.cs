@@ -22,7 +22,7 @@ namespace Mediapipe.Tasks.Vision.HandLandmarker
 
     private const int _MICRO_SECONDS_PER_MILLISECOND = 1000;
 
-#pragma warning disable IDE0052 
+#pragma warning disable IDE0052 // Remove unread private members
     private readonly Tasks.Core.TaskRunner.PacketsCallback _packetCallback;
 #pragma warning restore IDE0052
 
@@ -55,6 +55,7 @@ namespace Mediapipe.Tasks.Vision.HandLandmarker
         taskInfo.GenerateGraphConfig(),
         BuildPacketsCallback(options));
     }
+
     public void DetectAsync(Image image, long timestampMillisec)
     {
       ConfigureNormalizedRect(_normalizedRect);
