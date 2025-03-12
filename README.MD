@@ -20,7 +20,7 @@ Cílem této práce bylo navrhnout a implementovat základní způsob integrace 
 
 [Maturtitní Práce](https://pslib-my.sharepoint.com/:w:/r/personal/matyas_adamec_021_pslib_cz/_layouts/15/guestaccess.aspx?e=ZZ1Wyy&share=EXYwDNfyFWpFoihegAYvxK8BkveoWiYnmVjiS-FMCLr0Xg)
 
-[Ukázkové video](./vid.mp4)
+[Ukázkové video](./videos/vid.mp4)
 
 
 
